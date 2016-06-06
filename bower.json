@@ -1,0 +1,21 @@
+{
+  "name": "md-menu-colapse",
+  "homepage": "https://github.com/WesleyMarques/md-menu-colapse",
+  "authors": [
+    "Wesley <wesley.nmtorres@gmail.com>"
+  ],
+  "description": "Colapse menu with material design",
+  "main": "md-menu-colapse.js",
+  "keywords": [
+    "angular",
+    "material"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

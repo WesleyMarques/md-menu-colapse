@@ -1,14 +1,14 @@
 {
-  "name": "md-menu-colapse",
+  "name": "md-menu-collapse",
   "version": "0.0.1",
-  "description": "Colapse menu with material design",
-  "main": "md-menu-colapse.js",
+  "description": "Collapse menu with material design",
+  "main": "md-menu-collapse.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WesleyMarques/md-menu-colapse.git"
+    "url": "git+https://github.com/WesleyMarques/md-menu-collapse.git"
   },
   "keywords": [
     "angular",
@@ -17,7 +17,7 @@
   "author": "Wesley Nunes <wesley.nmtorres@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/WesleyMarques/md-menu-colapse/issues"
+    "url": "https://github.com/WesleyMarques/md-menu-collapse/issues"
   },
   "homepage": "https://github.com/WesleyMarques/md-menu-colapse#readme",
   "devDependencies": {

@@ -1,11 +1,13 @@
 (function() {
     'use strict';
 
-    angular.module('mdDropMenu',[])
-        .directive('mdDropMenu', function() {
+    angular.module('mdMenu', [])
+        .directive('mdMenuColapse', function() {
             return {
-                restrict: "EA",
+                restrict: 'EA',
                 scope: true,
+                transclude: true,
+                templateUrl: 'md-menu-colapse.html',
                 link: function(scope, element, attr) {
                     // code goes here ...
                 }

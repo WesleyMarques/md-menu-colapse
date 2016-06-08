@@ -1,58 +1,73 @@
-(function(){
-  'use strict';
+(function() {
+    'use strict';
 
-  angular.module('menu')
-         .service('menuService', ['$q', MenuService]);
+    angular.module('menu')
+        .service('menuService', ['$q', MenuService]);
 
-  /**
-   * Menu DataService
-   * Uses embedded, hard-coded data model; acts asynchronously to simulate
-   * remote data service call(s).
-   *
-   * @returns {{loadMenu: Function}}
-   * @constructor
-   */
-  function MenuService($q){
-    var menuItems = [
-      {
-        title: 'About',
-        href: '#/about',
-        colorHex: '21909E'
-      },
-      {
-        title: 'Purpose',
-        href: '#/purpose',
-        colorHex: 'A53434'
-      },
-      {
-        title: 'GitHub',
-        href: 'http://github.com/ritenv/angular-material-seed',
-        colorHex: 'A53434'
-      }
-      // {
-      //   title: 'Purpose',
-      //   href: '#/purpose',
-      //   colorHex: '455A64'
-      // },
-      // {
-      //   title: 'Technology',
-      //   href: '#/technology',
-      //   colorHex: '009688'
-      // },
-      // {
-      //   title: 'Credits',
-      //   href: '#/credits',
-      //   colorHex: '455A64'
-      // }
-    ];
+    /**
+     * Menu DataService
+     * Uses embedded, hard-coded data model; acts asynchronously to simulate
+     * remote data service call(s).
+     *
+     * @returns {{loadMenu: Function}}
+     * @constructor
+     */
+    function MenuService($q) {
+        var menuItems = [{
+            name: 'Mesas',
+            icon: 'view_module',
+            sref: '.tables',
+            subMenu: [{
 
-    // Promise-based API
-    return {
-      loadMenu : function() {
-        // Simulate async nature of real remote calls
-        return $q.when(menuItems);
-      }
-    };
-  }
+            }]
+        }, {
+            name: 'Funcionários',
+            icon: 'person',
+            sref: '.employee',
+            subMenu: [{
+
+            }]
+        }, {
+            name: 'Gerenciamento de Itens',
+            icon: 'markunread_mailbox',
+            sref: '.employee',
+            subMenu: [{
+                name: 'Gerenciamento de Categoria',
+                icon: 'markunread_mailbox',
+                sref: '.employee'
+            },
+            {
+                name: 'Gerenciamento de Categoria',
+                icon: 'markunread_mailbox',
+                sref: '.employee'
+            },
+            {
+                name: 'Gerenciamento de Categoria',
+                icon: 'markunread_mailbox',
+                sref: '.employee'
+            }]
+        }, {
+            name: 'Produto',
+            icon: 'room_service',
+            sref: '.products',
+            subMenu: [{
+
+            }]
+        }, {
+            name: 'Profile',
+            icon: 'library_books',
+            sref: '.profile',
+            subMenu: [{
+
+            }]
+        }];
+        // Promise-based API
+        return {
+            loadMenu: function() {
+                // Simulate async nature of real remote calls
+                return $q.when(menuItems);
+            }
+        };
+    }
 
 })();

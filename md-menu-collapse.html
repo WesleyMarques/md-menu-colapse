@@ -2,8 +2,16 @@
     <md-button ng-init="test = false" layout="row" layout-align="start center" class="" ng-click="test = !test" ui-sref-active="md-warn" ui-sref="{{item.sref}}" style="padding:0px;line-height: 56px;margin:0px">
         <div flex="30" layout-align="center center" layout="row">
             <i class="material-icons md-36">view_module</i></div>
-        <div flex="70" layout-align="start center" layout="row">Teste</div>
+        <div flex="70" layout-align="start center" layout="row"><span ng-transclude></span></div>
     </md-button>
-    <md-menu-content ng-show="test" flex-offset="20" ng-transclude></md-menu-content>
+    <div class="subMenu">
+        <md-menu-content ng-show="test">
+            <md-menu-item flex-offset="20" ng-repeat='subItem in subItems track by $index'>
+                <md-button ng-click="ctrl.checkVoicemail()">
+                    {{subItem.name}}
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </div>
     <md-divider></md-divider>
 </div>

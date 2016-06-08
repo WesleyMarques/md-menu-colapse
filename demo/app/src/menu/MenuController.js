@@ -21,7 +21,7 @@
     self.menuItems        = [ ];
     self.setActiveMenu  = setActiveMenu;
     self.toggleView = toggleView;
-
+    
      self.close = function () {
       // Component lookup should always be available since we are not using `ng-if`
       $mdSidenav('left').close()

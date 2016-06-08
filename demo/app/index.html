@@ -7,6 +7,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css" />
     <link rel="stylesheet" href="assets/app.css" />
     <!-- Remove this when building your app -->
@@ -28,8 +30,8 @@
 </head>
 
 <body ng-app="starterApp" layout="row" ng-cloak ng-controller="MenuController as menu">
-    <md-toolbar layout="row" class="md-whiteframe-z1" id="header-toolbar" style="background-color: #{{menu.headerColor}}">
-        <div flex>
+    <md-toolbar layout="column" class="md-whiteframe-z1" id="header-toolbar" style="background-color: #{{menu.headerColor}}">
+        <div flex ng-init="menu.toggleView()">
             <md-button class="menu-btn" ng-click="menu.toggleView()" aria-label="Show Menu">
                 <md-icon md-svg-icon="menu"></md-icon>
             </md-button>
@@ -37,27 +39,26 @@
         <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-disable-backdrop md-whiteframe="4">
             <md-toolbar class="md-theme-indigo">
                 <h1 class="md-toolbar-tools">Sidenav Left</h1>
-            </md-toolbar>
-            <md-content layout-padding>
-                <md-button ng-click="menu.close()" class="md-primary" hide-gt-md>
+                 <md-button ng-click="menu.close()" class="md-primary" hide-gt-md>
                     Close Sidenav Left
                 </md-button>
+            </md-toolbar>
+            <md-content layout-padding>
+               
+                <md-menu-collapse>
+                    <md-menu-collapse-item ng-repeat="item in menu.menuItems" sub-items="item.subMenu">
+                        {{item.name}}
+                    </md-menu-collapse-item>
+                </md-menu-collapse>
             </md-content>
         </md-sidenav>
     </md-toolbar>
-    <div flex tabIndex="-1" role="main" class="">
-        <md-content flex id="content" class="md-whiteframe-z2" md-scroll-y>
-            <div class="site-title">
-                <h2 class="light">{{menu.selected.title}}</h2>
-            </div>
-            <div ng-view class="view-transition"></div>
-        </md-content>
-    </div>
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-animate/angular-animate.js"></script>
     <script src="../bower_components/angular-aria/angular-aria.js"></script>
     <script src="../bower_components/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="../bower_components/angular-material/angular-material.js"></script>
+    <script type="text/javascript" src="../../md-menu-collapse.js"></script>
     <!-- <script src="./src/users/Users.js"></script>
     <script src="./src/users/UserController.js"></script>
     <script src="./src/users/UserService.js"></script> -->
@@ -73,7 +74,7 @@
     <script src="./src/pages/purpose/PurposeController.js"></script>
     <script type="text/javascript">
     angular
-        .module('starterApp', ['ngMaterial', 'ngAnimate', 'menu', 'about', 'purpose'])
+        .module('starterApp', ['ngMaterial', 'mdMenu', 'ngAnimate', 'menu', 'about', 'purpose'])
         .config(function($mdThemingProvider, $mdIconProvider) {
 
             $mdIconProvider
